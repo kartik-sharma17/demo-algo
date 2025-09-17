@@ -1,0 +1,970 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "alway,and,he,is,on,punctual,time": {
+            "intent": "punctuality",
+            "domain": "default"
+          },
+          "all,deadlin,delay,meet,she,without": {
+            "intent": "punctuality",
+            "domain": "default"
+          },
+          "achiev,all,goal,he,his,success": {
+            "intent": "performance",
+            "domain": "default"
+          },
+          "consist,exceed,she,target,the": {
+            "intent": "performance",
+            "domain": "default"
+          },
+          "employe,he,in,mentor,new,team,the": {
+            "intent": "leadership",
+            "domain": "default"
+          },
+          "and,guid,her,junior,she,train": {
+            "intent": "leadership",
+            "domain": "default"
+          },
+          "and,collabor,he,other,well,with,work": {
+            "intent": "teamwork",
+            "domain": "default"
+          },
+          "a,great,is,player,she,team": {
+            "intent": "teamwork",
+            "domain": "default"
+          },
+          "came,he,innov,solut,up,with": {
+            "intent": "innovation",
+            "domain": "default"
+          },
+          "idea,improv,introduc,new,she,to,work": {
+            "intent": "innovation",
+            "domain": "default"
+          },
+          "and,he,honest,is,trustworthi": {
+            "intent": "integrity",
+            "domain": "default"
+          },
+          "and,ethic,follow,integr,she": {
+            "intent": "integrity",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "punctuality": "default",
+          "performance": "default",
+          "leadership": "default",
+          "teamwork": "default",
+          "innovation": "default",
+          "integrity": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "He is always punctual and on time",
+            "intent": "punctuality"
+          },
+          {
+            "domain": "default",
+            "utterance": "She meets all deadlines without delay",
+            "intent": "punctuality"
+          },
+          {
+            "domain": "default",
+            "utterance": "He achieved all his goals successfully",
+            "intent": "performance"
+          },
+          {
+            "domain": "default",
+            "utterance": "She exceeded the targets consistently",
+            "intent": "performance"
+          },
+          {
+            "domain": "default",
+            "utterance": "He mentored new employees in the team",
+            "intent": "leadership"
+          },
+          {
+            "domain": "default",
+            "utterance": "She trained and guided her juniors",
+            "intent": "leadership"
+          },
+          {
+            "domain": "default",
+            "utterance": "He works well with others and collaborates",
+            "intent": "teamwork"
+          },
+          {
+            "domain": "default",
+            "utterance": "She is a great team player",
+            "intent": "teamwork"
+          },
+          {
+            "domain": "default",
+            "utterance": "He came up with innovative solutions",
+            "intent": "innovation"
+          },
+          {
+            "domain": "default",
+            "utterance": "She introduced new ideas to improve work",
+            "intent": "innovation"
+          },
+          {
+            "domain": "default",
+            "utterance": "He is honest and trustworthy",
+            "intent": "integrity"
+          },
+          {
+            "domain": "default",
+            "utterance": "She follows ethics and integrity",
+            "intent": "integrity"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "he": 1,
+              "is": 1,
+              "alway": 1,
+              "punctual": 1,
+              "and": 1,
+              "on": 1,
+              "time": 1,
+              "she": 1,
+              "meet": 1,
+              "all": 1,
+              "deadlin": 1,
+              "without": 1,
+              "delay": 1,
+              "achiev": 1,
+              "his": 1,
+              "goal": 1,
+              "success": 1,
+              "exceed": 1,
+              "the": 1,
+              "target": 1,
+              "consist": 1,
+              "mentor": 1,
+              "new": 1,
+              "employe": 1,
+              "in": 1,
+              "team": 1,
+              "train": 1,
+              "guid": 1,
+              "her": 1,
+              "junior": 1,
+              "work": 1,
+              "well": 1,
+              "with": 1,
+              "other": 1,
+              "collabor": 1,
+              "a": 1,
+              "great": 1,
+              "player": 1,
+              "came": 1,
+              "up": 1,
+              "innov": 1,
+              "solut": 1,
+              "introduc": 1,
+              "idea": 1,
+              "to": 1,
+              "improv": 1,
+              "honest": 1,
+              "trustworthi": 1,
+              "follow": 1,
+              "ethic": 1,
+              "integr": 1
+            },
+            "intents": {
+              "punctuality": 1,
+              "performance": 1,
+              "leadership": 1,
+              "teamwork": 1,
+              "innovation": 1,
+              "integrity": 1
+            },
+            "intentFeatures": {
+              "punctuality": {
+                "he": 1,
+                "is": 1,
+                "alway": 1,
+                "punctual": 1,
+                "and": 1,
+                "on": 1,
+                "time": 1,
+                "she": 1,
+                "meet": 1,
+                "all": 1,
+                "deadlin": 1,
+                "without": 1,
+                "delay": 1
+              },
+              "performance": {
+                "he": 1,
+                "achiev": 1,
+                "all": 1,
+                "his": 1,
+                "goal": 1,
+                "success": 1,
+                "she": 1,
+                "exceed": 1,
+                "the": 1,
+                "target": 1,
+                "consist": 1
+              },
+              "leadership": {
+                "he": 1,
+                "mentor": 1,
+                "new": 1,
+                "employe": 1,
+                "in": 1,
+                "the": 1,
+                "team": 1,
+                "she": 1,
+                "train": 1,
+                "and": 1,
+                "guid": 1,
+                "her": 1,
+                "junior": 1
+              },
+              "teamwork": {
+                "he": 1,
+                "work": 1,
+                "well": 1,
+                "with": 1,
+                "other": 1,
+                "and": 1,
+                "collabor": 1,
+                "she": 1,
+                "is": 1,
+                "a": 1,
+                "great": 1,
+                "team": 1,
+                "player": 1
+              },
+              "innovation": {
+                "he": 1,
+                "came": 1,
+                "up": 1,
+                "with": 1,
+                "innov": 1,
+                "solut": 1,
+                "she": 1,
+                "introduc": 1,
+                "new": 1,
+                "idea": 1,
+                "to": 1,
+                "improv": 1,
+                "work": 1
+              },
+              "integrity": {
+                "he": 1,
+                "is": 1,
+                "honest": 1,
+                "and": 1,
+                "trustworthi": 1,
+                "she": 1,
+                "follow": 1,
+                "ethic": 1,
+                "integr": 1
+              }
+            },
+            "featuresToIntent": {
+              "he": [
+                "punctuality",
+                "performance",
+                "leadership",
+                "teamwork",
+                "innovation",
+                "integrity"
+              ],
+              "is": [
+                "punctuality",
+                "teamwork",
+                "integrity"
+              ],
+              "alway": [
+                "punctuality"
+              ],
+              "punctual": [
+                "punctuality"
+              ],
+              "and": [
+                "punctuality",
+                "leadership",
+                "teamwork",
+                "integrity"
+              ],
+              "on": [
+                "punctuality"
+              ],
+              "time": [
+                "punctuality"
+              ],
+              "she": [
+                "punctuality",
+                "performance",
+                "leadership",
+                "teamwork",
+                "innovation",
+                "integrity"
+              ],
+              "meet": [
+                "punctuality"
+              ],
+              "all": [
+                "punctuality",
+                "performance"
+              ],
+              "deadlin": [
+                "punctuality"
+              ],
+              "without": [
+                "punctuality"
+              ],
+              "delay": [
+                "punctuality"
+              ],
+              "achiev": [
+                "performance"
+              ],
+              "his": [
+                "performance"
+              ],
+              "goal": [
+                "performance"
+              ],
+              "success": [
+                "performance"
+              ],
+              "exceed": [
+                "performance"
+              ],
+              "the": [
+                "performance",
+                "leadership"
+              ],
+              "target": [
+                "performance"
+              ],
+              "consist": [
+                "performance"
+              ],
+              "mentor": [
+                "leadership"
+              ],
+              "new": [
+                "leadership",
+                "innovation"
+              ],
+              "employe": [
+                "leadership"
+              ],
+              "in": [
+                "leadership"
+              ],
+              "team": [
+                "leadership",
+                "teamwork"
+              ],
+              "train": [
+                "leadership"
+              ],
+              "guid": [
+                "leadership"
+              ],
+              "her": [
+                "leadership"
+              ],
+              "junior": [
+                "leadership"
+              ],
+              "work": [
+                "teamwork",
+                "innovation"
+              ],
+              "well": [
+                "teamwork"
+              ],
+              "with": [
+                "teamwork",
+                "innovation"
+              ],
+              "other": [
+                "teamwork"
+              ],
+              "collabor": [
+                "teamwork"
+              ],
+              "a": [
+                "teamwork"
+              ],
+              "great": [
+                "teamwork"
+              ],
+              "player": [
+                "teamwork"
+              ],
+              "came": [
+                "innovation"
+              ],
+              "up": [
+                "innovation"
+              ],
+              "innov": [
+                "innovation"
+              ],
+              "solut": [
+                "innovation"
+              ],
+              "introduc": [
+                "innovation"
+              ],
+              "idea": [
+                "innovation"
+              ],
+              "to": [
+                "innovation"
+              ],
+              "improv": [
+                "innovation"
+              ],
+              "honest": [
+                "integrity"
+              ],
+              "trustworthi": [
+                "integrity"
+              ],
+              "follow": [
+                "integrity"
+              ],
+              "ethic": [
+                "integrity"
+              ],
+              "integr": [
+                "integrity"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "he",
+                "is",
+                "alway",
+                "punctual",
+                "and",
+                "on",
+                "time",
+                "she",
+                "meet",
+                "all",
+                "deadlin",
+                "without",
+                "delay",
+                "achiev",
+                "his",
+                "goal",
+                "success",
+                "exceed",
+                "the",
+                "target",
+                "consist",
+                "mentor",
+                "new",
+                "employe",
+                "in",
+                "team",
+                "train",
+                "guid",
+                "her",
+                "junior",
+                "work",
+                "well",
+                "with",
+                "other",
+                "collabor",
+                "a",
+                "great",
+                "player",
+                "came",
+                "up",
+                "innov",
+                "solut",
+                "introduc",
+                "idea",
+                "to",
+                "improv",
+                "honest",
+                "trustworthi",
+                "follow",
+                "ethic",
+                "integr"
+              ],
+              "intents": [
+                "punctuality",
+                "performance",
+                "leadership",
+                "teamwork",
+                "innovation",
+                "integrity"
+              ],
+              "perceptrons": [
+                [
+                  0.23011961579322815,
+                  1.2024964094161987,
+                  3.0487427711486816,
+                  3.0487427711486816,
+                  0.3622925877571106,
+                  3.0487427711486816,
+                  3.0487427711486816,
+                  0.47520995140075684,
+                  2.8661046028137207,
+                  2.006373882293701,
+                  2.8661046028137207,
+                  2.8661046028137207,
+                  2.8661046028137207,
+                  -0.7821804881095886,
+                  -0.7821804881095886,
+                  -0.7821804881095886,
+                  -0.7821804881095886,
+                  -0.32529258728027344,
+                  -0.5263649821281433,
+                  -0.32529258728027344,
+                  -0.32529258728027344,
+                  -0.13389942049980164,
+                  -0.3616655766963959,
+                  -0.13389942049980164,
+                  -0.13389942049980164,
+                  -0.792213499546051,
+                  -0.511111319065094,
+                  -0.511111319065094,
+                  -0.511111319065094,
+                  -0.511111319065094,
+                  -0.5443974137306213,
+                  -0.3029818832874298,
+                  -0.5438739061355591,
+                  -0.3029818832874298,
+                  -0.3029818832874298,
+                  -0.6056740880012512,
+                  -0.6056740880012512,
+                  -0.6056740880012512,
+                  -0.1657678633928299,
+                  -0.1657678633928299,
+                  -0.1657678633928299,
+                  -0.1657678633928299,
+                  -0.17249472439289093,
+                  -0.17249472439289093,
+                  -0.17249472439289093,
+                  -0.17249472439289093,
+                  -1.1423850059509277,
+                  -1.1423850059509277,
+                  -0.5202133655548096,
+                  -0.5202133655548096,
+                  -0.5202133655548096,
+                  0.34123318549709164
+                ],
+                [
+                  0.9097542762756348,
+                  -0.6242948770523071,
+                  -0.082314133644104,
+                  -0.082314133644104,
+                  -1.1978565454483032,
+                  -0.082314133644104,
+                  -0.082314133644104,
+                  0.9490612149238586,
+                  -0.9847576022148132,
+                  1.6688642501831055,
+                  -0.9847576022148132,
+                  -0.9847576022148132,
+                  -0.9847576022148132,
+                  2.69694447517395,
+                  2.69694447517395,
+                  2.69694447517395,
+                  2.69694447517395,
+                  3.3393378257751465,
+                  2.490882396697998,
+                  3.3393378257751465,
+                  3.3393378257751465,
+                  -0.8074459433555603,
+                  -1.118661642074585,
+                  -0.8074459433555603,
+                  -0.8074459433555603,
+                  -1.1665444374084473,
+                  -0.3124723732471466,
+                  -0.3124723732471466,
+                  -0.3124723732471466,
+                  -0.3124723732471466,
+                  -0.46323534846305847,
+                  -0.14349906146526337,
+                  -0.6025643348693848,
+                  -0.14349906146526337,
+                  -0.14349906146526337,
+                  -0.29640311002731323,
+                  -0.29640311002731323,
+                  -0.29640311002731323,
+                  -0.3993853032588959,
+                  -0.3993853032588959,
+                  -0.3993853032588959,
+                  -0.3993853032588959,
+                  -0.2577512264251709,
+                  -0.2577512264251709,
+                  -0.2577512264251709,
+                  -0.2577512264251709,
+                  -0.16508421301841736,
+                  -0.16508421301841736,
+                  -0.3061217963695526,
+                  -0.3061217963695526,
+                  -0.3061217963695526,
+                  0.9146828204170285
+                ],
+                [
+                  0.683662474155426,
+                  -1.4552315473556519,
+                  -0.29637882113456726,
+                  -0.29637882113456726,
+                  1.092392921447754,
+                  -0.29637882113456726,
+                  -0.29637882113456726,
+                  0.1329834908246994,
+                  -0.22637246549129486,
+                  -0.4838121235370636,
+                  -0.22637246549129486,
+                  -0.22637246549129486,
+                  -0.22637246549129486,
+                  -0.21858879923820496,
+                  -0.21858879923820496,
+                  -0.21858879923820496,
+                  -0.21858879923820496,
+                  -0.823286235332489,
+                  1.6640654802322388,
+                  -0.823286235332489,
+                  -0.823286235332489,
+                  2.5312893390655518,
+                  1.9577480554580688,
+                  2.5312893390655518,
+                  2.5312893390655518,
+                  1.9348405599594116,
+                  3.177389144897461,
+                  3.177389144897461,
+                  3.177389144897461,
+                  3.177389144897461,
+                  -0.9829438328742981,
+                  -0.3896796405315399,
+                  -0.677043616771698,
+                  -0.3896796405315399,
+                  -0.3896796405315399,
+                  -0.5207550525665283,
+                  -0.5207550525665283,
+                  -0.5207550525665283,
+                  -0.20322370529174805,
+                  -0.20322370529174805,
+                  -0.20322370529174805,
+                  -0.20322370529174805,
+                  -0.49891799688339233,
+                  -0.49891799688339233,
+                  -0.49891799688339233,
+                  -0.49891799688339233,
+                  -0.5066203474998474,
+                  -0.5066203474998474,
+                  -0.688886821269989,
+                  -0.688886821269989,
+                  -0.688886821269989,
+                  0.3967011694677252
+                ],
+                [
+                  0.03830099478363991,
+                  1.3363463878631592,
+                  -0.6036735773086548,
+                  -0.6036735773086548,
+                  0.3900087773799896,
+                  -0.6036735773086548,
+                  -0.6036735773086548,
+                  0.7491514086723328,
+                  -0.34843364357948303,
+                  -0.42282018065452576,
+                  -0.34843364357948303,
+                  -0.34843364357948303,
+                  -0.34843364357948303,
+                  -0.053770534694194794,
+                  -0.053770534694194794,
+                  -0.053770534694194794,
+                  -0.053770534694194794,
+                  -0.3436991274356842,
+                  -0.7911822199821472,
+                  -0.3436991274356842,
+                  -0.3436991274356842,
+                  -0.419429749250412,
+                  -1.0890172719955444,
+                  -0.419429749250412,
+                  -0.419429749250412,
+                  2.5766148567199707,
+                  -0.390255868434906,
+                  -0.390255868434906,
+                  -0.390255868434906,
+                  -0.390255868434906,
+                  2.415403127670288,
+                  3.000109910964966,
+                  2.2984137535095215,
+                  3.000109910964966,
+                  3.000109910964966,
+                  3.0323078632354736,
+                  3.0323078632354736,
+                  3.0323078632354736,
+                  -0.7074040770530701,
+                  -0.7074040770530701,
+                  -0.7074040770530701,
+                  -0.7074040770530701,
+                  -0.6282563805580139,
+                  -0.6282563805580139,
+                  -0.6282563805580139,
+                  -0.6282563805580139,
+                  -1.0512386560440063,
+                  -1.0512386560440063,
+                  -0.5165486335754395,
+                  -0.5165486335754395,
+                  -0.5165486335754395,
+                  0.3893660820018065
+                ],
+                [
+                  0.4821629226207733,
+                  -0.523621678352356,
+                  -0.10877048969268799,
+                  -0.10877048969268799,
+                  -1.8606737852096558,
+                  -0.10877048969268799,
+                  -0.10877048969268799,
+                  0.8886558413505554,
+                  -0.3343963623046875,
+                  -0.6777747273445129,
+                  -0.3343963623046875,
+                  -0.3343963623046875,
+                  -0.3343963623046875,
+                  -0.2718922793865204,
+                  -0.2718922793865204,
+                  -0.2718922793865204,
+                  -0.2718922793865204,
+                  -0.32766932249069214,
+                  -0.9580474495887756,
+                  -0.32766932249069214,
+                  -0.32766932249069214,
+                  -0.5463728904724121,
+                  1.7609586715698242,
+                  -0.5463728904724121,
+                  -0.5463728904724121,
+                  -0.785082995891571,
+                  -0.1578845977783203,
+                  -0.1578845977783203,
+                  -0.1578845977783203,
+                  -0.1578845977783203,
+                  1.3258510828018188,
+                  -0.9909939765930176,
+                  1.7768962383270264,
+                  -0.9909939765930176,
+                  -0.9909939765930176,
+                  -0.17197968065738678,
+                  -0.17197968065738678,
+                  -0.17197968065738678,
+                  2.8472585678100586,
+                  2.8472585678100586,
+                  2.8472585678100586,
+                  2.8472585678100586,
+                  2.3989923000335693,
+                  2.3989923000335693,
+                  2.3989923000335693,
+                  2.3989923000335693,
+                  -0.14637969434261322,
+                  -0.14637969434261322,
+                  -0.26944106817245483,
+                  -0.26944106817245483,
+                  -0.26944106817245483,
+                  0.674476768867413
+                ],
+                [
+                  0.8379864692687988,
+                  1.582507610321045,
+                  -1.6207752227783203,
+                  -1.6207752227783203,
+                  3.375627279281616,
+                  -1.6207752227783203,
+                  -1.6207752227783203,
+                  0.519638180732727,
+                  -0.28572922945022583,
+                  -0.5706679224967957,
+                  -0.28572922945022583,
+                  -0.28572922945022583,
+                  -0.28572922945022583,
+                  -0.23463892936706543,
+                  -0.23463892936706543,
+                  -0.23463892936706543,
+                  -0.23463892936706543,
+                  -0.3506143093109131,
+                  -0.49431711435317993,
+                  -0.3506143093109131,
+                  -0.3506143093109131,
+                  -0.09764281660318375,
+                  -0.24752973020076752,
+                  -0.09764281660318375,
+                  -0.09764281660318375,
+                  -0.80564284324646,
+                  -1.1880649328231812,
+                  -1.1880649328231812,
+                  -1.1880649328231812,
+                  -1.1880649328231812,
+                  -1.0741329193115234,
+                  -0.9381601810455322,
+                  -1.0599340200424194,
+                  -0.9381601810455322,
+                  -0.9381601810455322,
+                  -0.6712496280670166,
+                  -0.6712496280670166,
+                  -0.6712496280670166,
+                  -0.10750024765729904,
+                  -0.10750024765729904,
+                  -0.10750024765729904,
+                  -0.10750024765729904,
+                  -0.1110863909125328,
+                  -0.1110863909125328,
+                  -0.1110863909125328,
+                  -0.1110863909125328,
+                  3.896531581878662,
+                  3.896531581878662,
+                  3.2795162200927734,
+                  3.2795162200927734,
+                  3.2795162200927734,
+                  0.6738324023207265
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "He is always punctual and on time"
+      ],
+      [
+        "en",
+        "She meets all deadlines without delay"
+      ],
+      [
+        "en",
+        "He achieved all his goals successfully"
+      ],
+      [
+        "en",
+        "She exceeded the targets consistently"
+      ],
+      [
+        "en",
+        "He mentored new employees in the team"
+      ],
+      [
+        "en",
+        "She trained and guided her juniors"
+      ],
+      [
+        "en",
+        "He works well with others and collaborates"
+      ],
+      [
+        "en",
+        "She is a great team player"
+      ],
+      [
+        "en",
+        "He came up with innovative solutions"
+      ],
+      [
+        "en",
+        "She introduced new ideas to improve work"
+      ],
+      [
+        "en",
+        "He is honest and trustworthy"
+      ],
+      [
+        "en",
+        "She follows ethics and integrity"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
