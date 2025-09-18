@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import { responsePlate } from "../utils/responsePlate.js";
-import { intialScore } from "../utils/initialScore.js";
-import { validateInitialinput } from "../utils/validateInitialinput.js";
+import { intialScore } from "../algorithm/initialScore.js";
+import { validateInitialinput } from "../algorithm/validateInitialinput.js";
 
 export const generateInitialscore = (req: Request, res: Response) => {
   try {
