@@ -1,4 +1,4 @@
-import { initialScoringParams } from "./intialScoringParams";
+import { initialScoringParams } from "../parameter/intialScoringParams";
 
 export const validateInitialinput = (
   initialDatafromUser: Record<string, string>
