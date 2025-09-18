@@ -5,6 +5,7 @@ import { validateInitialinput } from "../algorithm/validateInitialinput.js";
 
 export const generateInitialscore = (req: Request, res: Response) => {
   try {
+    console.log(req.body)
     const userData = validateInitialinput(req?.body);
 
     if (userData?.crossQuestion.length > 0) {
