@@ -14,7 +14,7 @@ export const validateInitialinput = (
     ) {
       crossQuestion.push({
         key: parameter?.key,
-        question: parameter?.question,
+        question: parameter?.question,  
       });
     } else {
       completeData[parameter?.key] = initialDatafromUser[parameter?.key]!;
