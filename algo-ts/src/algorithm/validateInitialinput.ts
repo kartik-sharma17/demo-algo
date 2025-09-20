@@ -1,10 +1,17 @@
 import { initialScoringParams } from "../parameter/intialScoringParams";
+import { validateInput } from "../validation";
 
 export const validateInitialinput = (
   initialDatafromUser: Record<string, string>
 ) => {
-  const crossQuestion: { key: string; question: string }[] = [];
+  let crossQuestion: {}[] = [];
   const completeData: Record<string, string> = {};
+
+  const invalidInput = validateInput(initialDatafromUser);
+
+  if (invalidInput.length > 0) {
+    crossQuestion = crossQuestion.concat(invalidInput)
+  }
 
   initialScoringParams.forEach((parameter) => {
     if (
@@ -14,7 +21,7 @@ export const validateInitialinput = (
     ) {
       crossQuestion.push({
         key: parameter?.key,
-        question: parameter?.question,  
+        question: parameter?.question,
       });
     } else {
       completeData[parameter?.key] = initialDatafromUser[parameter?.key]!;
