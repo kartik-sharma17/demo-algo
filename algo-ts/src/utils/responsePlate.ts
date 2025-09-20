@@ -2,7 +2,12 @@ import type { Response } from "express";
 
 export const responsePlate = (
   res: Response,
-  { success = true, message = "", data = {}, status = 200 }
+  {
+    status = 200,
+    success = true,
+    message,
+    data,
+  }: { status?: number; success?: boolean; message: string; data?: any }
 ) => {
   return res.status(status).json({
     success,

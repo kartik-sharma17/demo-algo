@@ -2,20 +2,41 @@ import type { Request, Response } from "express";
 import { responsePlate } from "../utils/responsePlate.js";
 import { intialScore } from "../algorithm/initialScore.js";
 import { validateInitialinput } from "../algorithm/validateInitialinput.js";
+import { initialDatafromUserSchema } from "../validation/zodValidation.js";
 
 export const generateInitialscore = (req: Request, res: Response) => {
   try {
-    const userData = validateInitialinput(req?.body);
+    // validating the code form the zod
+    const { success, data, error } = initialDatafromUserSchema.safeParse(
+      req.body
+    );
 
-    if (userData?.crossQuestion.length > 0) {
+    // returning with the message if validation failed
+    if (!success) {
+      return responsePlate(res, {
+        message: "Validation failed",
+        status: 411,
+        success: false,
+        data: error.issues.map((err) => ({
+          path: err.path.join("."), // which field failed
+          message: err.message, // error message
+        })),
+      });
+    }
+
+    const invalidInput = validateInitialinput(data);
+
+    if (invalidInput.length !== 0) {
       return responsePlate(res, {
         message: "There is Missing Data",
         success: false,
         status: 400,
-        data: userData?.crossQuestion,
+        data: invalidInput,
       });
     }
-    const result = intialScore(userData.completeData);
+
+    const result = intialScore(data);
+
     return responsePlate(res, {
       data: result,
       message: "score Successfully Generated",

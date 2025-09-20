@@ -2,31 +2,18 @@ import { initialScoringParams } from "../parameter/intialScoringParams";
 import { validateInput } from "../validation";
 
 export const validateInitialinput = (
-  initialDatafromUser: Record<string, string>
+  initialDatafromUser: Record<string, string | boolean | number>
 ) => {
-  let crossQuestion: {}[] = [];
-  const completeData: Record<string, string> = {};
+  try {
+    const invalidInput = validateInput(initialDatafromUser);
 
-  const invalidInput = validateInput(initialDatafromUser);
-
-  if (invalidInput.length > 0) {
-    crossQuestion = crossQuestion.concat(invalidInput)
-  }
-
-  initialScoringParams.forEach((parameter) => {
-    if (
-      initialDatafromUser[parameter?.key] === undefined ||
-      initialDatafromUser[parameter?.key] === "" ||
-      initialDatafromUser[parameter?.key] === null
-    ) {
-      crossQuestion.push({
-        key: parameter?.key,
-        question: parameter?.question,
-      });
+    if (invalidInput.length !== 0) {
+      return invalidInput;
     } else {
-      completeData[parameter?.key] = initialDatafromUser[parameter?.key]!;
+      return [];
     }
-  });
-
-  return { crossQuestion, completeData };
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
