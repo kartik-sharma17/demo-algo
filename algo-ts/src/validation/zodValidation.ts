@@ -2,7 +2,7 @@ import z from "zod";
 
 export const initialDatafromUserSchema = z.object({
   totalExperienceYears: z.number(),
-  averageTenureYears: z.number(),
+  averageTenureYears: z.number().max(5),
   lastEmployerTenureYears: z.number(),
   jobsInLast5Years: z.number(),
   longestSingleTenureYears: z.number(),

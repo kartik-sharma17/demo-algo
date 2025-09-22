@@ -11,97 +11,109 @@ export const intialScore = (
   let summary: { key: string; label: string; points: number }[] = [];
 
   initialScoringParams?.forEach((parameter) => {
-
     const value = userData[parameter.key];
 
-    if (parameter.key === "totalExperienceYears") {
-      const points = experienceScore(value)
+    if (parameter.key === "totalExperienceYears" && typeof value === "number") {
+      const points = experienceScore(value);
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "averageTenureYears") {
-      const points = averageTenurescore(value)
+    } else if (
+      parameter.key === "averageTenureYears" &&
+      typeof value === "number"
+    ) {
+      const points = averageTenurescore(value);
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "promotionsCount") {
-      const points = promotionScore(value)
+    } else if (
+      parameter.key === "promotionsCount" &&
+      typeof value === "number"
+    ) {
+      const points = promotionScore(value);
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "employmentGapsMonths") {
-      const points = employmentGap(value)
+    } else if (
+      parameter.key === "employmentGapsMonths" &&
+      typeof value === "number"
+    ) {
+      const points = employmentGap(value);
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "lastEmployerTenureYears") {
-      let points = 0
+    } else if (
+      parameter.key === "lastEmployerTenureYears" &&
+      typeof value === "number"
+    ) {
+      let points = 0;
       if (value >= 1) {
-        points = 11.11
+        points = 11.11;
       } else {
-        points = 0
+        points = 0;
       }
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "jobsInLast5Years") {
-      let points = 0
+    } else if (
+      parameter.key === "jobsInLast5Years" &&
+      typeof value === "number"
+    ) {
+      let points = 0;
       if (value <= 4) {
-        points = 11.11
+        points = 11.11;
       } else {
-        points = 0
+        points = 0;
       }
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "longestSingleTenureYears") {
-      let points = 0
+    } else if (
+      parameter.key === "longestSingleTenureYears" &&
+      typeof value === "number"
+    ) {
+      let points = 0;
       if (value >= 2) {
-        points = 11.11
+        points = 11.11;
       } else {
-        points = 0
+        points = 0;
       }
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else if (parameter.key === "employmentGapsMonths") {
-      const points = employmentGap(value)
+    } else if (
+      parameter.key === "employmentGapsMonths" &&
+      typeof value === "number"
+    ) {
+      const points = employmentGap(value);
       summary.push({
         key: parameter?.key,
         label: parameter?.label,
-        points: points
-      })
+        points: points,
+      });
       score = score + points;
-    }
-    else {
+    } else {
       if (typeof value === "undefined") return;
 
       if (parameter?.type === "boolean") {
@@ -125,9 +137,6 @@ export const intialScore = (
         });
       }
     }
-
-
-
   });
 
   return {

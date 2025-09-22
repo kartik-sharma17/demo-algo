@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import { responsePlate } from "../utils/responsePlate.js";
 import { intialScore } from "../algorithm/initialScore.js";
-import { validateInitialinput } from "../algorithm/validateInitialinput.js";
 import { initialDatafromUserSchema } from "../validation/zodValidation.js";
+import { validateInput } from "../validation/root.js";
 
 export const generateInitialscore = (req: Request, res: Response) => {
   try {
@@ -24,7 +24,7 @@ export const generateInitialscore = (req: Request, res: Response) => {
       });
     }
 
-    const invalidInput = validateInitialinput(data);
+    const invalidInput = validateInput(data);
 
     if (invalidInput.length !== 0) {
       return responsePlate(res, {
