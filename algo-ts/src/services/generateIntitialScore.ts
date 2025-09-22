@@ -11,7 +11,7 @@ export const generateInitialscore = (req: Request, res: Response) => {
       req.body
     );
 
-    // returning with the message if validation failed
+    // returning if validation failed
     if (!success) {
       return responsePlate(res, {
         message: "Validation failed",

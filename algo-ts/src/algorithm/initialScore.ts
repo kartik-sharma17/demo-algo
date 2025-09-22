@@ -7,8 +7,23 @@ import { employmentGap } from "./employmentGap";
 export const intialScore = (
   userData: Record<string, string | boolean | number>
 ) => {
-  let score = 0;
+  // let score = 0;
+
+  // for testing
+  let score = 200;
   let summary: { key: string; label: string; points: number }[] = [];
+
+  summary.push({
+    key: "account_creation",
+    label: "Score after generating your naukri score",
+    points: 100,
+  });
+
+  summary.push({
+    key: "background_verification",
+    label: "Score after completing your background checks",
+    points: 100,
+  });
 
   initialScoringParams?.forEach((parameter) => {
     const value = userData[parameter.key];
@@ -140,7 +155,7 @@ export const intialScore = (
   });
 
   return {
-    score,
+    score: Number(Math.floor(score).toFixed(0)),
     summary,
   };
 };
