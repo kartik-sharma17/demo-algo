@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
 import { responsePlate } from "../utils/responsePlate.js";
 import { intialScore } from "../algorithm/initialScore.js";
-import { initialDatafromUserSchema } from "../validation/zodValidation.js";
 import { validateInput } from "../validation/root.js";
+import { initialDatafromUserSchema } from "../zod/initalDataFromUserSchema.js";
 
 export const generateInitialscore = (req: Request, res: Response) => {
   try {
