@@ -42,7 +42,7 @@ export const feedbackScore = async (req: Request, res: Response) => {
         )
     );
 
-    console.log(notFindKeys);
+    // console.log(notFindKeys);
 
     const foundKeys = keyPoints.filter(
       (keyElm) =>
@@ -51,19 +51,15 @@ export const feedbackScore = async (req: Request, res: Response) => {
         )
     );
 
-    console.log(foundKeys);
+    console.log("these are the found keys = ", foundKeys);
 
-    // here we have to add the logic of our own algo
-
-    // doing the gemini thing
     const geminiResp = await model.generateContent(prompt(notFindKeys));
 
     let geminiText = geminiResp.response.text();
-    console.log("Gemini Raw Output:\n", geminiText);
+    // console.log("Gemini Raw Output:\n", geminiText);
 
     geminiText = geminiText.replace(/```json|```/g, "").trim();
 
-    // parsing the result
     const geminiParsedRes = JSON.parse(geminiText);
 
     console.log("Gemini Parsed Output:\n", geminiParsedRes);
@@ -75,7 +71,7 @@ export const feedbackScore = async (req: Request, res: Response) => {
         success: true,
         status: 200,
         message: "Feedback Submitted Successfully",
-        data:feedbackResult
+        data: feedbackResult
       });
     }
 

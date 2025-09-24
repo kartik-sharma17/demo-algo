@@ -1,9 +1,15 @@
 import { severity } from "../parameter/severity"
 
+type severityType = "high" | "veryLow" | "low" | "belowAverage" | "moderate" | "aboveModerate" | "high" | "veryHigh" | "elite";
+
+type statusType = "positive" | "negative";
+
 interface feedBackType {
-    key: string,
-    severity: string,
-    status: string,
+    key: string;
+    severity: severityType;
+    status: statusType;
+    description: string
+    label: string
 }
 
 export const manipulateScore = (feedbacks: feedBackType[]) => {
@@ -14,8 +20,8 @@ export const manipulateScore = (feedbacks: feedBackType[]) => {
         user.score += points;
 
         return {
-            key: feedback.key,
-            label: "Here we add label in gemini things so we can show that in the reports",
+            key: feedback?.key,
+            label: feedback?.label,
             points
         };
     });
